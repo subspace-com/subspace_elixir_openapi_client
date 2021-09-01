@@ -2,24 +2,24 @@
 # https://openapi-generator.tech
 # Do not edit the class manually.
 
-defmodule SubspaceProductAPI.Model.ProtobufAny do
+defmodule SubspaceProductAPI.Model.V1CreateSipTeleport do
   @moduledoc """
   
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"type_url",
-    :"value"
+    :"name",
+    :"destination"
   ]
 
   @type t :: %__MODULE__{
-    :"type_url" => String.t | nil,
-    :"value" => binary() | nil
+    :"name" => String.t,
+    :"destination" => String.t
   }
 end
 
-defimpl Poison.Decoder, for: SubspaceProductAPI.Model.ProtobufAny do
+defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1CreateSipTeleport do
   def decode(value, _options) do
     value
   end

@@ -2,28 +2,28 @@
 # https://openapi-generator.tech
 # Do not edit the class manually.
 
-defmodule SubspaceProductAPI.Model.V1ListAcceleratorsResponse do
+defmodule SubspaceProductAPI.Model.V1ListSessionsResponse do
   @moduledoc """
   
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"accelerators",
+    :"sessions",
     :"next_page"
   ]
 
   @type t :: %__MODULE__{
-    :"accelerators" => [SubspaceProductAPI.Model.V1Accelerator.t] | nil,
+    :"sessions" => [SubspaceProductAPI.Model.V1Session.t] | nil,
     :"next_page" => SubspaceProductAPI.Model.V1NextPage.t | nil
   }
 end
 
-defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListAcceleratorsResponse do
+defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListSessionsResponse do
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"accelerators", :list, SubspaceProductAPI.Model.V1Accelerator, options)
+    |> deserialize(:"sessions", :list, SubspaceProductAPI.Model.V1Session, options)
     |> deserialize(:"next_page", :struct, SubspaceProductAPI.Model.V1NextPage, options)
   end
 end

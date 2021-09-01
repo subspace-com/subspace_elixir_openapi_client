@@ -9,23 +9,23 @@ defmodule SubspaceProductAPI.Model.V1SipTeleportResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"dateCreated",
-    :"dateUpdated",
-    :"destination",
     :"id",
+    :"name",
+    :"destination",
+    :"teleport_entry_points",
     :"status",
-    :"teleportEntryPoints",
-    :"version"
+    :"date_created",
+    :"date_updated"
   ]
 
   @type t :: %__MODULE__{
-    :"dateCreated" => DateTime.t | nil,
-    :"dateUpdated" => DateTime.t | nil,
-    :"destination" => String.t | nil,
     :"id" => String.t | nil,
+    :"name" => String.t | nil,
+    :"destination" => String.t | nil,
+    :"teleport_entry_points" => [SubspaceProductAPI.Model.V1TeleportAddresses.t] | nil,
     :"status" => SubspaceProductAPI.Model.V1SipTeleportStatus.t | nil,
-    :"teleportEntryPoints" => [SubspaceProductAPI.Model.V1TeleportAddresses.t] | nil,
-    :"version" => integer() | nil
+    :"date_created" => DateTime.t | nil,
+    :"date_updated" => DateTime.t | nil
   }
 end
 
@@ -33,8 +33,8 @@ defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1SipTeleportResponse do
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
+    |> deserialize(:"teleport_entry_points", :list, SubspaceProductAPI.Model.V1TeleportAddresses, options)
     |> deserialize(:"status", :struct, SubspaceProductAPI.Model.V1SipTeleportStatus, options)
-    |> deserialize(:"teleportEntryPoints", :list, SubspaceProductAPI.Model.V1TeleportAddresses, options)
   end
 end
 

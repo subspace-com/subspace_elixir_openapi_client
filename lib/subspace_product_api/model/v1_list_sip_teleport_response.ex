@@ -9,13 +9,13 @@ defmodule SubspaceProductAPI.Model.V1ListSipTeleportResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"nextPage",
-    :"sipTeleports"
+    :"sip_teleports",
+    :"next_page"
   ]
 
   @type t :: %__MODULE__{
-    :"nextPage" => SubspaceProductAPI.Model.V1NextPage.t | nil,
-    :"sipTeleports" => [SubspaceProductAPI.Model.V1SipTeleportResponse.t] | nil
+    :"sip_teleports" => [SubspaceProductAPI.Model.V1SipTeleportResponse.t] | nil,
+    :"next_page" => SubspaceProductAPI.Model.V1NextPage.t | nil
   }
 end
 
@@ -23,8 +23,8 @@ defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListSipTeleportResponse 
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"nextPage", :struct, SubspaceProductAPI.Model.V1NextPage, options)
-    |> deserialize(:"sipTeleports", :list, SubspaceProductAPI.Model.V1SipTeleportResponse, options)
+    |> deserialize(:"sip_teleports", :list, SubspaceProductAPI.Model.V1SipTeleportResponse, options)
+    |> deserialize(:"next_page", :struct, SubspaceProductAPI.Model.V1NextPage, options)
   end
 end
 

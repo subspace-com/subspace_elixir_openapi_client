@@ -18,7 +18,11 @@ defmodule SubspaceProductAPI.Connection do
     "accelerators:read", # allows reading details about provisioned PacketAccelerators
     "accelerators:write", # allows administration of PacketAccelerators
     "sipteleport:read", # allows reading details about provisioned SIPTeleport
-    "sipteleport:write" # allows administration of SIPTeleport
+    "sipteleport:write", # allows administration of SIPTeleport
+    "sessions:read", # allows reading details about PacketAccelerator sessions
+    "sessions:write", # allows administration of PacketAccelerator sessions
+    "projects:read", # allows reading details about projects
+    "projects:write" # allows administration of projects
   ]
 
   @doc """

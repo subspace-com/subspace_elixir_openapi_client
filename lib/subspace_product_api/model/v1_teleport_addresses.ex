@@ -10,12 +10,12 @@ defmodule SubspaceProductAPI.Model.V1TeleportAddresses do
   @derive [Poison.Encoder]
   defstruct [
     :"address",
-    :"transportType"
+    :"transport_type"
   ]
 
   @type t :: %__MODULE__{
     :"address" => String.t | nil,
-    :"transportType" => SubspaceProductAPI.Model.V1TransportType.t | nil
+    :"transport_type" => SubspaceProductAPI.Model.V1TransportType.t | nil
   }
 end
 
@@ -23,7 +23,7 @@ defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1TeleportAddresses do
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"transportType", :struct, SubspaceProductAPI.Model.V1TransportType, options)
+    |> deserialize(:"transport_type", :struct, SubspaceProductAPI.Model.V1TransportType, options)
   end
 end
 

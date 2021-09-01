@@ -12,8 +12,6 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
 
 
   @doc """
-  CreateAccelerator
-  CreateAccelerator generates a new PacketAccelerator
 
   ## Parameters
 
@@ -26,7 +24,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   {:ok, SubspaceProductAPI.Model.V1Accelerator.t} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_create(Tesla.Env.client, SubspaceProductAPI.Model.Body.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:ok, SubspaceProductAPI.Model.RpcStatus.t} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_create(Tesla.Env.client, SubspaceProductAPI.Model.Body.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:ok, String.t} | {:error, Tesla.Env.t}
   def accelerator_service_create(connection, body, opts \\ []) do
     optional_params = %{
       :"Idempotency-Key" => :headers
@@ -40,16 +38,18 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
+      { 400, false},
       { 401, false},
+      { 402, false},
+      { 403, false},
       { 404, false},
+      { 429, false},
       { 201, false},
-      { :default, %SubspaceProductAPI.Model.RpcStatus{}}
+      { :default, false}
     ])
   end
 
   @doc """
-  DeleteAccelerator
-  DeleteAccelerator deletes the given PacketAccelerator, specified by its id
 
   ## Parameters
 
@@ -61,7 +61,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   {:ok, map()} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_delete(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:ok, SubspaceProductAPI.Model.RpcStatus.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_delete(Tesla.Env.client, String.t, keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
   def accelerator_service_delete(connection, id, _opts \\ []) do
     %{}
     |> method(:delete)
@@ -70,15 +70,17 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, false},
+      { 400, false},
       { 401, false},
+      { 402, false},
+      { 403, false},
       { 404, false},
-      { :default, %SubspaceProductAPI.Model.RpcStatus{}}
+      { 429, false},
+      { :default, false}
     ])
   end
 
   @doc """
-  GetAccelerator
-  GetAccelerator returns the details of a given PacketAccelerator, specified by its id
 
   ## Parameters
 
@@ -90,7 +92,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   {:ok, SubspaceProductAPI.Model.V1Accelerator.t} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_get(Tesla.Env.client, String.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:ok, SubspaceProductAPI.Model.RpcStatus.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_get(Tesla.Env.client, String.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def accelerator_service_get(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
@@ -99,15 +101,17 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
+      { 400, false},
       { 401, false},
+      { 402, false},
+      { 403, false},
       { 404, false},
-      { :default, %SubspaceProductAPI.Model.RpcStatus{}}
+      { 429, false},
+      { :default, false}
     ])
   end
 
   @doc """
-  ListAccelerators
-  ListAccelerators returns a list of all existing PacketAccelerators.
 
   ## Parameters
 
@@ -115,18 +119,16 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   - opts (KeywordList): [optional] Optional parameters
     - :before (String.t): 
     - :limit (integer()): 
-    - :q (String.t): q Provides a query string which filters accelerators in the response.
   ## Returns
 
   {:ok, SubspaceProductAPI.Model.V1ListAcceleratorsResponse.t} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_list(Tesla.Env.client, keyword()) :: {:ok, SubspaceProductAPI.Model.V1ListAcceleratorsResponse.t} | {:ok, Map.t} | {:ok, SubspaceProductAPI.Model.RpcStatus.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_list(Tesla.Env.client, keyword()) :: {:ok, SubspaceProductAPI.Model.V1ListAcceleratorsResponse.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def accelerator_service_list(connection, opts \\ []) do
     optional_params = %{
       :"before" => :query,
-      :"limit" => :query,
-      :"q" => :query
+      :"limit" => :query
     }
     %{}
     |> method(:get)
@@ -136,15 +138,17 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1ListAcceleratorsResponse{}},
+      { 400, false},
       { 401, false},
+      { 402, false},
+      { 403, false},
       { 404, false},
-      { :default, %SubspaceProductAPI.Model.RpcStatus{}}
+      { 429, false},
+      { :default, false}
     ])
   end
 
   @doc """
-  UpdateAccelerator
-  UpdateAccelerator updates an existing accelerator, specified by its id
 
   ## Parameters
 
@@ -158,7 +162,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   {:ok, SubspaceProductAPI.Model.V1Accelerator.t} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_update(Tesla.Env.client, String.t, SubspaceProductAPI.Model.Body1.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:ok, SubspaceProductAPI.Model.RpcStatus.t} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_update(Tesla.Env.client, String.t, SubspaceProductAPI.Model.Body1.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1Accelerator.t} | {:ok, Map.t} | {:ok, String.t} | {:error, Tesla.Env.t}
   def accelerator_service_update(connection, id, body1, opts \\ []) do
     optional_params = %{
       :"If-Match" => :headers
@@ -172,10 +176,14 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
+      { 400, false},
       { 401, false},
+      { 402, false},
+      { 403, false},
       { 404, false},
+      { 429, false},
       { 409, false},
-      { :default, %SubspaceProductAPI.Model.RpcStatus{}}
+      { :default, false}
     ])
   end
 end
