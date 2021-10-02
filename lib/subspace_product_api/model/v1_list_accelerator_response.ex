@@ -2,7 +2,7 @@
 # https://openapi-generator.tech
 # Do not edit the class manually.
 
-defmodule SubspaceProductAPI.Model.V1ListSipTeleportResponse do
+defmodule SubspaceProductAPI.Model.V1ListAcceleratorResponse do
   @moduledoc """
   
   """
@@ -14,16 +14,16 @@ defmodule SubspaceProductAPI.Model.V1ListSipTeleportResponse do
   ]
 
   @type t :: %__MODULE__{
-    :"data" => [SubspaceProductAPI.Model.V1SipTeleportResponse.t] | nil,
+    :"data" => [SubspaceProductAPI.Model.V1Accelerator.t] | nil,
     :"next_page" => SubspaceProductAPI.Model.V1NextPage.t | nil
   }
 end
 
-defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListSipTeleportResponse do
+defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListAcceleratorResponse do
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"data", :list, SubspaceProductAPI.Model.V1SipTeleportResponse, options)
+    |> deserialize(:"data", :list, SubspaceProductAPI.Model.V1Accelerator, options)
     |> deserialize(:"next_page", :struct, SubspaceProductAPI.Model.V1NextPage, options)
   end
 end

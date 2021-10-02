@@ -26,7 +26,7 @@ defmodule SubspaceProductAPI.Api.ProjectService do
   def project_service_create(connection, _opts \\ []) do
     %{}
     |> method(:post)
-    |> url("/v1/projects")
+    |> url("/v1/project")
     |> ensure_body()
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -52,7 +52,7 @@ defmodule SubspaceProductAPI.Api.ProjectService do
   def project_service_get(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
-    |> url("/v1/projects/#{id}")
+    |> url("/v1/project/#{id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -82,7 +82,7 @@ defmodule SubspaceProductAPI.Api.ProjectService do
     }
     %{}
     |> method(:get)
-    |> url("/v1/projects")
+    |> url("/v1/project")
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -108,7 +108,7 @@ defmodule SubspaceProductAPI.Api.ProjectService do
   def project_service_update(connection, id, _opts \\ []) do
     %{}
     |> method(:put)
-    |> url("/v1/projects/#{id}")
+    |> url("/v1/project/#{id}")
     |> ensure_body()
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

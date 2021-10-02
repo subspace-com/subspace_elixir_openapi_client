@@ -33,7 +33,7 @@ defmodule SubspaceProductAPI.Api.SessionService do
     }
     %{}
     |> method(:get)
-    |> url("/v1/accelerators/#{accelerator_id}/sessions")
+    |> url("/v1/accelerator/#{accelerator_id}/session")
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

@@ -31,7 +31,7 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     }
     %{}
     |> method(:post)
-    |> url("/v1/sip-teleports")
+    |> url("/v1/sipteleport")
     |> add_param(:body, :body, v1_create_sip_teleport)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
@@ -64,7 +64,7 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
   def sip_teleport_service_delete(connection, id, _opts \\ []) do
     %{}
     |> method(:delete)
-    |> url("/v1/sip-teleports/#{id}")
+    |> url("/v1/sipteleport/#{id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -95,7 +95,7 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
   def sip_teleport_service_get(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
-    |> url("/v1/sip-teleports/#{id}")
+    |> url("/v1/sipteleport/#{id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -131,7 +131,7 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     }
     %{}
     |> method(:get)
-    |> url("/v1/sip-teleports")
+    |> url("/v1/sipteleport")
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -164,7 +164,7 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
   def sip_teleport_service_update(connection, id, v1_update_sip_teleport, _opts \\ []) do
     %{}
     |> method(:put)
-    |> url("/v1/sip-teleports/#{id}")
+    |> url("/v1/sipteleport/#{id}")
     |> add_param(:body, :body, v1_update_sip_teleport)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

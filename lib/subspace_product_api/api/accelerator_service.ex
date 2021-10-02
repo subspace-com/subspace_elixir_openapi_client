@@ -31,7 +31,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     }
     %{}
     |> method(:post)
-    |> url("/v1/accelerators")
+    |> url("/v1/accelerator")
     |> add_param(:body, :body, body)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
@@ -65,7 +65,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   def accelerator_service_delete(connection, id, _opts \\ []) do
     %{}
     |> method(:delete)
-    |> url("/v1/accelerators/#{id}")
+    |> url("/v1/accelerator/#{id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -96,7 +96,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   def accelerator_service_get(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
-    |> url("/v1/accelerators/#{id}")
+    |> url("/v1/accelerator/#{id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -121,10 +121,10 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     - :limit (integer()): 
   ## Returns
 
-  {:ok, SubspaceProductAPI.Model.V1ListAcceleratorsResponse.t} on success
+  {:ok, SubspaceProductAPI.Model.V1ListAcceleratorResponse.t} on success
   {:error, Tesla.Env.t} on failure
   """
-  @spec accelerator_service_list(Tesla.Env.client, keyword()) :: {:ok, SubspaceProductAPI.Model.V1ListAcceleratorsResponse.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec accelerator_service_list(Tesla.Env.client, keyword()) :: {:ok, SubspaceProductAPI.Model.V1ListAcceleratorResponse.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def accelerator_service_list(connection, opts \\ []) do
     optional_params = %{
       :"before" => :query,
@@ -132,12 +132,12 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     }
     %{}
     |> method(:get)
-    |> url("/v1/accelerators")
+    |> url("/v1/accelerator")
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %SubspaceProductAPI.Model.V1ListAcceleratorsResponse{}},
+      { 200, %SubspaceProductAPI.Model.V1ListAcceleratorResponse{}},
       { 400, false},
       { 401, false},
       { 402, false},
@@ -169,7 +169,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     }
     %{}
     |> method(:put)
-    |> url("/v1/accelerators/#{id}")
+    |> url("/v1/accelerator/#{id}")
     |> add_param(:body, :body, body1)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])

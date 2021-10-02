@@ -9,12 +9,12 @@ defmodule SubspaceProductAPI.Model.V1ListSessionsResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"sessions",
+    :"data",
     :"next_page"
   ]
 
   @type t :: %__MODULE__{
-    :"sessions" => [SubspaceProductAPI.Model.V1Session.t] | nil,
+    :"data" => [SubspaceProductAPI.Model.V1Session.t] | nil,
     :"next_page" => SubspaceProductAPI.Model.V1NextPage.t | nil
   }
 end
@@ -23,7 +23,7 @@ defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1ListSessionsResponse do
   import SubspaceProductAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"sessions", :list, SubspaceProductAPI.Model.V1Session, options)
+    |> deserialize(:"data", :list, SubspaceProductAPI.Model.V1Session, options)
     |> deserialize(:"next_page", :struct, SubspaceProductAPI.Model.V1NextPage, options)
   end
 end

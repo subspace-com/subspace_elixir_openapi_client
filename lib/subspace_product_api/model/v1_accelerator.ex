@@ -13,8 +13,6 @@ defmodule SubspaceProductAPI.Model.V1Accelerator do
     :"destination_port",
     :"id",
     :"name",
-    :"protocol",
-    :"subspace_ip",
     :"subspace_ipv4",
     :"subspace_port"
   ]
@@ -24,18 +22,14 @@ defmodule SubspaceProductAPI.Model.V1Accelerator do
     :"destination_port" => integer() | nil,
     :"id" => String.t | nil,
     :"name" => String.t | nil,
-    :"protocol" => SubspaceProductAPI.Model.V1Protocol.t | nil,
-    :"subspace_ip" => String.t | nil,
     :"subspace_ipv4" => String.t | nil,
     :"subspace_port" => integer() | nil
   }
 end
 
 defimpl Poison.Decoder, for: SubspaceProductAPI.Model.V1Accelerator do
-  import SubspaceProductAPI.Deserializer
-  def decode(value, options) do
+  def decode(value, _options) do
     value
-    |> deserialize(:"protocol", :struct, SubspaceProductAPI.Model.V1Protocol, options)
   end
 end
 
