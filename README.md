@@ -21,18 +21,6 @@ def deps do
 end
 ```
 
-## Configuration
-
-Set your key to be the JWT.
-
-You can configure for your application as:
-
-     config :subspace_product_api, key: :value
-
-And access this configuration in your application as:
-
-     Application.get_env(:subspace_product_api, :key)
-
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/subspace_openapi_client](https://hexdocs.pm/subspace_openapi_client).

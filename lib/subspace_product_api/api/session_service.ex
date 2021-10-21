@@ -48,4 +48,42 @@ defmodule SubspaceProductAPI.Api.SessionService do
       { :default, false}
     ])
   end
+
+  @doc """
+
+  ## Parameters
+
+  - connection (SubspaceProductAPI.Connection): Connection to server
+  - accelerator_id (String.t): 
+  - opts (KeywordList): [optional] Optional parameters
+    - :before (String.t): 
+    - :limit (integer()): 
+  ## Returns
+
+  {:ok, SubspaceProductAPI.Model.V1ListSessionsResponse.t} on success
+  {:error, Tesla.Env.t} on failure
+  """
+  @spec session_service_list2(Tesla.Env.client, String.t, keyword()) :: {:ok, SubspaceProductAPI.Model.V1ListSessionsResponse.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def session_service_list2(connection, accelerator_id, opts \\ []) do
+    optional_params = %{
+      :"before" => :query,
+      :"limit" => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/v1/accelerators/#{accelerator_id}/sessions")
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, %SubspaceProductAPI.Model.V1ListSessionsResponse{}},
+      { 400, false},
+      { 401, false},
+      { 402, false},
+      { 403, false},
+      { 404, false},
+      { 429, false},
+      { :default, false}
+    ])
+  end
 end

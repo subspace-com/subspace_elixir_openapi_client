@@ -10,12 +10,14 @@ defmodule SubspaceProductAPI.Model.V1CreateSipTeleport do
   @derive [Poison.Encoder]
   defstruct [
     :"name",
-    :"destination"
+    :"destination",
+    :"status"
   ]
 
   @type t :: %__MODULE__{
     :"name" => String.t,
-    :"destination" => String.t
+    :"destination" => String.t,
+    :"status" => String.t | nil
   }
 end
 

@@ -119,6 +119,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   - opts (KeywordList): [optional] Optional parameters
     - :before (String.t): 
     - :limit (integer()): 
+    - :name (String.t): 
   ## Returns
 
   {:ok, SubspaceProductAPI.Model.V1ListAcceleratorResponse.t} on success
@@ -128,7 +129,8 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   def accelerator_service_list(connection, opts \\ []) do
     optional_params = %{
       :"before" => :query,
-      :"limit" => :query
+      :"limit" => :query,
+      :"name" => :query
     }
     %{}
     |> method(:get)

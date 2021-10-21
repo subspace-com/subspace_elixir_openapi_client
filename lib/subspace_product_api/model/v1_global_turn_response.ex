@@ -9,11 +9,13 @@ defmodule SubspaceProductAPI.Model.V1GlobalTurnResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"ice_servers"
+    :"ice_servers",
+    :"ttl"
   ]
 
   @type t :: %__MODULE__{
-    :"ice_servers" => [SubspaceProductAPI.Model.V1GlobalTurnServer.t] | nil
+    :"ice_servers" => [SubspaceProductAPI.Model.V1GlobalTurnServer.t] | nil,
+    :"ttl" => integer() | nil
   }
 end
 
