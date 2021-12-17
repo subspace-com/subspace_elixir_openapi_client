@@ -16,7 +16,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
   ## Parameters
 
   - connection (SubspaceProductAPI.Connection): Connection to server
-  - body (Body): Required parameters to create a new PacketAccelerator.  NOTE- only subspace_port is optional
+  - body (Body): Required parameters to create a new PacketAccelerator.
   - opts (KeywordList): [optional] Optional parameters
     - :idempotency_key (String.t): Value is the returned etag of a get request.  If a retry sends an Idempotency-Key that has been seen before, the existing accelerator is returned with the status code of 200
   ## Returns
@@ -156,7 +156,7 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
 
   - connection (SubspaceProductAPI.Connection): Connection to server
   - id (String.t): 
-  - body1 (Body1): Parameters to update an existing PacketAccelerator, minimum requirement of one of them defined to update
+  - body1 (Body1): Parameters to update an existing PacketAccelerator
   - opts (KeywordList): [optional] Optional parameters
     - :if_match (integer()): 
   ## Returns

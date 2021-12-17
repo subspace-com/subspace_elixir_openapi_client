@@ -20,9 +20,7 @@ defmodule SubspaceProductAPI.Connection do
     "console:access", # allows access to the console
     "sipteleport:read", # allows reading details about provisioned SIPTeleport
     "sipteleport:write", # allows administration of SIPTeleport
-    "sessions:read", # allows reading details about PacketAccelerator sessions
     "projects:read", # allows reading details about projects
-    "projects:write", # allows administration of projects
     "globalturn:access", # allows administration of GlobalTurn
     "rtpspeed:read", # allows reading details about rtpspeed
     "rtpspeed:write" # allows administration of rtpspeed

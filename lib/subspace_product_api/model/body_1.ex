@@ -9,17 +9,11 @@ defmodule SubspaceProductAPI.Model.Body1 do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"protocol",
-    :"name",
-    :"destination_ip",
-    :"destination_port"
+    :"name"
   ]
 
   @type t :: %__MODULE__{
-    :"protocol" => String.t | nil,
-    :"name" => String.t | nil,
-    :"destination_ip" => String.t | nil,
-    :"destination_port" => integer() | nil
+    :"name" => String.t | nil
   }
 end
 
