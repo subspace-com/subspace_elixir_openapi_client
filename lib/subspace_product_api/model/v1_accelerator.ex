@@ -9,19 +9,19 @@ defmodule SubspaceProductAPI.Model.V1Accelerator do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"id",
-    :"name",
     :"destination_ip",
     :"destination_port",
+    :"id",
+    :"name",
     :"subspace_ipv4",
     :"subspace_port"
   ]
 
   @type t :: %__MODULE__{
-    :"id" => String.t | nil,
-    :"name" => String.t | nil,
     :"destination_ip" => String.t | nil,
     :"destination_port" => integer() | nil,
+    :"id" => String.t | nil,
+    :"name" => String.t | nil,
     :"subspace_ipv4" => String.t | nil,
     :"subspace_port" => integer() | nil
   }

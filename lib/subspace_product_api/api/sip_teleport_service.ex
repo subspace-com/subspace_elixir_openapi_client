@@ -38,13 +38,13 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1SipTeleportResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -69,13 +69,13 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1SipTeleportResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -100,13 +100,13 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1SipTeleportResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -137,13 +137,13 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1ListSipTeleportResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -170,13 +170,13 @@ defmodule SubspaceProductAPI.Api.SipTeleportService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1SipTeleportResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 end

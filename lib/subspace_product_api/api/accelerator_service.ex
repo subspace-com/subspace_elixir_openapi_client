@@ -38,14 +38,14 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
       { 201, false},
-      { :default, false}
+      { :default, %{}}
     ])
   end
 
@@ -69,14 +69,14 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, false},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 200, %{}},
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -101,13 +101,13 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -140,13 +140,13 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1ListAcceleratorResponse{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
-      { :default, false}
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
+      { :default, %{}}
     ])
   end
 
@@ -178,14 +178,14 @@ defmodule SubspaceProductAPI.Api.AcceleratorService do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %SubspaceProductAPI.Model.V1Accelerator{}},
-      { 400, false},
-      { 401, false},
-      { 402, false},
-      { 403, false},
-      { 404, false},
-      { 429, false},
+      { 400, %{}},
+      { 401, %{}},
+      { 402, %{}},
+      { 403, %{}},
+      { 404, %{}},
+      { 429, %{}},
       { 409, false},
-      { :default, false}
+      { :default, %{}}
     ])
   end
 end

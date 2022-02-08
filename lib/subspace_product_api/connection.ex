@@ -21,7 +21,7 @@ defmodule SubspaceProductAPI.Connection do
     "sipteleport:read", # allows reading details about provisioned SIPTeleport
     "sipteleport:write", # allows administration of SIPTeleport
     "projects:read", # allows reading details about projects
-    "globalturn:access", # allows administration of GlobalTurn
+    "webrtccdn:access", # allows administration of WebRTC-CDN
     "rtpspeed:read", # allows reading details about rtpspeed
     "rtpspeed:write" # allows administration of rtpspeed
   ]
